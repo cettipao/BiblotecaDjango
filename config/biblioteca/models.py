@@ -9,12 +9,6 @@ class Ejemplar(models.Model):
         null=False
     )
     localizacion = models.CharField(max_length = 30,null=False)
-    usuarioActual = models.ForeignKey(
-        'Usuario',
-        on_delete=models.CASCADE,
-        null = True,
-        blank=True
-    )
     def __str__(self):
         return str("{} de {}".format(self.localizacion,self.libro.titulo))
 
@@ -34,6 +28,7 @@ class Usuario(models.Model):
     nombre = models.CharField(max_length = 30,null=False)
     telefono = models.CharField(max_length = 10,null=False)
     direccion = models.CharField(max_length = 30,null=False)
+    ejemplares = models.ManyToManyField(Ejemplar)
     def __str__(self):
         return str(self.nombre)
 
