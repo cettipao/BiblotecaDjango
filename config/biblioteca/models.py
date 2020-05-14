@@ -2,7 +2,13 @@ from django.db import models
 
 # Create your models here.
 
-
+class Usuario(models.Model):
+    nombre = models.CharField(max_length = 30,null=False)
+    telefono = models.CharField(max_length = 10,null=False)
+    direccion = models.CharField(max_length = 30,null=False)
+    ejemplares = models.ManyToManyField('Libro')
+    def __str__(self):
+        return str(self.nombre)
 
 class Ejemplar(models.Model):
     libro = models.ForeignKey(
@@ -21,7 +27,7 @@ class Libro(models.Model):
     autor = models.ForeignKey(
         'Autor',
         on_delete=models.CASCADE,
-        null=False
+        null = False,
     )
     def __str__(self):
         return str(self.titulo)
