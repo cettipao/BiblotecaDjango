@@ -1,3 +1,2 @@
 # BiblotecaDjango
-Ejercicios con Django | Programacion III
-Version de Python: 3.6.9
+Ejercicios con Django | Programacion III | Version de Python: 3.6.9
