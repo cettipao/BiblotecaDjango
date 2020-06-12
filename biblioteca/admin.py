@@ -1,22 +1,22 @@
-from django.forms import ModelForm, TextInput
-from django.contrib.admin import ModelAdmin
 from django.contrib import admin
 
 # Register your models here.
 
 from .models import *
 
-class LibroForm(ModelForm):
-    class Meta:
-        widgets = {
-            'titulo': TextInput(attrs={'class': 'input-mini'})
-        }
-        
-class LibroAdmin(ModelAdmin):
-    form = LibroForm
-
+class UsuarioAdmin(admin.ModelAdmin):
+    #exclude = ('telefono',)
+    fieldsets = (
+        ("Informacion Personal", {
+            'fields':('nombre','direccion','telefono',)
+        }),
+        ('Detalle de alquileres', {
+            'fields':('ejemplares',)
+        }),
+    )
+    list_display = ('nombre','telefono')
 
 admin.site.register(Autor)
-admin.site.register(Libro,LibroAdmin)
-admin.site.register(Usuario)
+admin.site.register(Libro)
+admin.site.register(Usuario,UsuarioAdmin)
 admin.site.register(Ejemplar)
