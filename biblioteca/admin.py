@@ -23,7 +23,7 @@ class UsuarioAdmin(admin.ModelAdmin):
 class LibroAdmin(admin.ModelAdmin):
     exclude = ('paginas','autor',)
     list_display = ('titulo','editorial')
-    list_filter = ('titulo',)
+    #list_filter = ('titulo',)
     #inlines = [AutorInLine,]
 
 class AutorAdmin(admin.ModelAdmin):
