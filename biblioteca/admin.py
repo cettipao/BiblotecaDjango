@@ -17,8 +17,12 @@ class UsuarioAdmin(admin.ModelAdmin):
         ('Contacto', {
             'fields':('telefono','direccion',)
         }),
+        ('Ejemplares Alquilados', {
+            'fields':('ejemplares',)
+        }),
     )
     list_display = ('nombre','telefono')
+    filter_vertical = ('ejemplares',)
 
 class LibroAdmin(admin.ModelAdmin):
     exclude = ('paginas','autor',)
