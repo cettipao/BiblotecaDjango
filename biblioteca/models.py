@@ -21,16 +21,20 @@ class Libro(models.Model):
         on_delete=models.CASCADE,
         null = False,
     )
+    
     def __str__(self):
         return str(self.titulo)
 
 class Usuario(models.Model):
+    codigo = models.IntegerField()
     nombre = models.CharField(max_length = 30,null=False)
     telefono = models.CharField(max_length = 10,null=False)
     direccion = models.CharField(max_length = 30,null=False)
     ejemplares = models.ManyToManyField(Ejemplar)
+
     def __str__(self):
         return str(self.nombre)
+
 
 class Autor(models.Model):
     nombre = models.CharField(max_length = 30,null=False)
